@@ -19,7 +19,7 @@ type Izadata struct {
 	Session       string
 }
 
-const Mysqlconf = "root:Wjjddnjq@tcp(127.0.0.1:3306)/test"
+const Mysqlconf = "username:password@tcp(127.0.0.1:3306)/test"
 
 var Iza Izadata
 

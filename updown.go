@@ -19,7 +19,7 @@ type Izadata struct {
 	Session       string
 }
 
-const Mysqlconf = "username:password@tcp(127.0.0.1:3306)/test"
+const Mysqlconf = "root:Wjjddnjq@tcp(127.0.0.1:3306)/test"
 
 var Iza Izadata
 
@@ -59,7 +59,7 @@ func GetDatas(w http.ResponseWriter, r *http.Request) {
 			fmt.Println(err)
 		}
 		defer db.Close()
-		err := db.QueryRow("SELECT Id,Session FROM CharacterInfo WHERE LastLogin < ? limit 1", time.Now().AddDate(0, 0, -1).Format("20060102")).Scan(&Iza.Id, &Iza.Session)
+		err = db.QueryRow("SELECT Id,Session FROM CharacterInfo WHERE LastLogin < ? limit 1", time.Now().AddDate(0, 0, -1).Format("20060102")).Scan(&Iza.Id, &Iza.Session)
 		if err != nil {
 			fmt.Println(err)
 		}
